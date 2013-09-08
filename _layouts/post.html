@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{% if page.language %}{{ page.language }}{% else %}{{ site.language }}{% endif %}">
+  <head>
+{% include html/head.html %}
+  </head>
+  <body>
+    <div id="root">
+      <header id="header">
+{% include html/body/header.html %}
+      </header>
+      <div class="clearfix">
+        <main id="main">
+          <article class="post">
+            <header>
+              <h1>{{ page.title }}</h1>
+              <h2>{{ page.description }}</h2>
+            </header>
+            <section class="markdown">
+  {{ content }}
+            </section>
+            <footer>
+            {% if page.date %}
+              <div class="pubdate">
+                <div>Posted on</div>
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+              </div>
+            {% endif %}
+            {% if page.previous %}
+              <div class="previous">
+                <div>&#8617; Previous</div>
+                <a href="{{ page.previous.url }}" rel="prev">{{ page.previous.title }}</a>
+              </div>
+            {% elsif page.next %}
+              <div class="previous">
+                <div>&#8617; Archive</div>
+                <a href="/archive/">More Posts</a>
+              </div>
+            {% endif %}
+            {% if page.next %}
+              <div class="next">
+                <div>Next &#8594;</div>
+                <a href="{{ page.next.url }}" rel="next">{{ page.next.title }}</a>
+              </div>
+            {% elsif page.previous %}
+              <div class="next">
+                <div>Archive &#8594;</div>
+                <a href="/archive/">More Posts</a>
+              </div>
+            {% endif %}
+            </footer>
+          </article>
+        </main>
+        <aside id="aside">
+  {% include html/body/aside.html %}
+        </aside>
+      </div>
+      <footer id="footer">
+{% include html/body/footer.html %}
+      </footer>
+    </div>
+  </body>
+</html>

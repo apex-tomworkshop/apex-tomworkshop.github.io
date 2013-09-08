@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{% if page.language %}{{ page.language }}{% else %}{{ site.language }}{% endif %}">
+  <head>
+{% include html/head.html %}
+    <script>
+      (function() {
+        this.setTimeout(function(){this.location.replace("{{ page.link }}");}, 5000);
+      }).call(this);
+    </script>
+    <noscript>
+      <meta http-equiv="Refresh" content="5; url={{ page.link }}">
+    </noscript>
+  </head>
+  <body>
+    <div id="root">
+      <header id="header">
+{% include html/body/header.html %}
+      </header>
+      <div class="clearfix">
+        <main id="main">
+          <h1>请稍等，正在为你正在转跳……</h1>
+        </main>
+        <aside id="aside">
+  {% include html/body/aside.html %}
+        </aside>
+      </div>
+      <footer id="footer">
+{% include html/body/footer.html %}
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+---
+layout: default
+title: Resources
+description: 出国考试资料下载
+tags: [TOEFL, 托福, SAT, SAT II, SAT 2, AP, A-LEVEL, GRE, Download, 资料, 下载]
+---
+<h1>资料下载</h1>
+<form id="categories">
+  按分类查看:
+  <label><input type="radio" name="filter" value="all" checked="checked"> ALL</label>
+  <label><input type="radio" name="filter" value="toefl"> TOEFL</label>
+  <label><input type="radio" name="filter" value="sat"> SAT</label>
+  <label><input type="radio" name="filter" value="sat-ii"> SAT II</label>
+  <label><input type="radio" name="filter" value="ap"> AP</label>
+  <label><input type="radio" name="filter" value="a-level"> A-LEVEL</label>
+  <label><input type="radio" name="filter" value="gre"> GRE</label>
+  <label><input type="radio" name="filter" value="other"> OTHER</label>
+</form>
+<script>
+(function() {
+  var input, _i, _len, _ref;
+
+  _ref = document.getElementById("categories").getElementsByTagName("input");
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    input = _ref[_i];
+    input.onchange = function() {
+      var cat, li, _j, _len1, _ref1, _results;
+      _ref1 = document.getElementById("resources-list").getElementsByTagName("li");
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        li = _ref1[_j];
+        switch (this.value) {
+          case "all":
+            li.style.display = "list-item"
+            break;
+          case "other":
+            li.style.display = "list-item";
+            (function() {
+              var _k, _len2, _ref2, _results1;
+              _ref2 = ["toefl", "sat", "sat-ii", "ap", "a-level", "gre"];
+              for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+                cat = _ref2[_k];
+                if ((" " + li.className + " ").replace(/[\t\r\n\f]/g, " ").indexOf(" " + cat + " ") >= 0) {
+                  li.style.display = "none";
+                }
+              }
+            })();
+            break;
+          default:
+            li.style.display = "none";
+            if ((" " + li.className + " ").replace(/[\t\r\n\f]/g, " ").indexOf(" " + this.value + " ") >= 0) {
+              li.style.display = "list-item";
+            }
+        }
+      }
+    };
+  }
+}).call(this);
+</script>
+<ul id="resources-list">
+{% for post in site.categories.resources %}
+  <li class="{{ post.tags | join: ' ' }}"><a href="{{ post.link }}" target="_blank">[{{ post.date | date: '%Y%m%d' }}] {{ post.title }}</a></li>
+{% endfor %}
+</ul>

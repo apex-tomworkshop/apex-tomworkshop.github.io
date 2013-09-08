@@ -1,0 +1,33 @@
+---
+layout: nil
+include_pages:
+- url: /
+  priority: 1.0
+exclude_urls:
+- /
+- /robots.txt
+- /sitemap.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in page.include_pages %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <priority>{{ post.priority }}</priority>
+  </url>
+  {% endfor %}
+  {% for post in site.pages %}
+  {% unless page.exclude_urls contains post.url %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <priority>0.6</priority>
+  </url>
+  {% endunless %}
+  {% endfor %}
+  {% for post in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+</urlset>

@@ -1,0 +1,16 @@
+url: http://apex-tomworkshop.com
+
+pygments: true
+permalink: pretty
+markdown: redcarpet
+
+redcarpet:
+  extensions: [no_intra_emphasis, fenced_code_blocks, strikethrough, space_after_header, superscript, tables, with_toc_data]
+
+title: Apex-Tom Workshop
+description: Apex-Tom Workshop Official Site
+language: zh-CN
+author:
+  name: Apex-Tom Workshop
+  url: http://apex-tomworkshop.com
+  email: 
