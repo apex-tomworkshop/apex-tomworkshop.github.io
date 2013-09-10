@@ -1,10 +1,10 @@
 ---
 layout: default
 description: Apex-Tom Workshop Home Page
-tags: [Apex, Tom, English Education]
+tags: [Apex, Tom, 艾派克斯, 英语, SAT, 培训, 托福, Toefl, 陈熙, English Education]
 ---
 
-![](/assets/img/homepage-image-04.jpg)
+![Apex-Tom Workshop](/assets/img/homepage-image-04.jpg)
 
 # 工作室简介
 
@@ -14,4 +14,4 @@ tags: [Apex, Tom, English Education]
   
 **“眉毛上的汗水与眉毛下的泪水，你只能选择一种”**，这句话在这里与大家共勉！
 
-![](/assets/img/homepage-image-01.jpg)
+![Bald Eagle](/assets/img/homepage-image-01.jpg)
